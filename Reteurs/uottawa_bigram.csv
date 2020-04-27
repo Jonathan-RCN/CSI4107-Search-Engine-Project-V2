@@ -327,7 +327,7 @@ underlying,"{'principles': 0.14285714285714285, 'syndromes': 0.14285714285714285
 infrastructure,"{'technology': 0.25, 'web': 0.25, 'identification': 0.25, 'rti': 0.25}"
 impacts,"{'organizations': 0.5, 'security': 0.5}"
 individuals,"{'organizations': 0.42857142857142855, 'couples': 0.2857142857142857, 'applications': 0.14285714285714285, 'groups': 0.14285714285714285}"
-levels,"{'organization': 0.3333333333333333, 'electronic': 0.16666666666666666, '\x96': 0.16666666666666666, 'relationship': 0.16666666666666666, 'behavioural': 0.16666666666666666}"
+levels,"{'organization': 0.3333333333333333, 'electronic': 0.16666666666666666, 'â–': 0.16666666666666666, 'relationship': 0.16666666666666666, 'behavioural': 0.16666666666666666}"
 electronic,"{'commerce': 0.42857142857142855, 'business': 0.14285714285714285, 'health': 0.14285714285714285, 'digital': 0.14285714285714285, 'transactions': 0.14285714285714285}"
 legal,"{'issues': 0.375, 'liability': 0.125, 'system': 0.125, 'considerations': 0.125, 'ethical': 0.125, 'framework': 0.125}"
 security,"{'privacy': 0.09090909090909091, 'mechanisms': 0.06060606060606061, 'methodologies': 0.06060606060606061, 'quality': 0.030303030303030304, 'auditing': 0.030303030303030304, 'risk': 0.030303030303030304, 'network': 0.030303030303030304, 'query': 0.030303030303030304, 'protection': 0.030303030303030304, 'policies': 0.030303030303030304, 'security': 0.030303030303030304, 'awareness': 0.030303030303030304, 'operating': 0.030303030303030304, 'e': 0.030303030303030304, 'system': 0.030303030303030304, 'analysis': 0.030303030303030304, 'models': 0.030303030303030304, 'protocols': 0.030303030303030304, 'encryption': 0.030303030303030304, 'internet': 0.030303030303030304, 'including': 0.030303030303030304, 'infrastructures': 0.030303030303030304, 'non': 0.030303030303030304, 'routing': 0.030303030303030304, 'topics': 0.030303030303030304, 'ad': 0.030303030303030304, 'imperceptibility': 0.030303030303030304, 'issues': 0.030303030303030304, 'distributed': 0.030303030303030304}"
@@ -852,7 +852,7 @@ funding,{'techniques': 1.0}
 risks,"{'associated': 0.3333333333333333, 'barriers': 0.16666666666666666, 'types': 0.16666666666666666, 'affecting': 0.16666666666666666, 'inter': 0.16666666666666666}"
 break,{'products': 1.0}
 csr,{'sustainability': 1.0}
-,{'self': 1.0}
+â–,{'self': 1.0}
 self,"{'others': 0.14285714285714285, 'efficacy': 0.14285714285714285, 'handicapping': 0.14285714285714285, 'concept': 0.14285714285714285, 'adjusting': 0.14285714285714285, 'organization': 0.14285714285714285, 'organized': 0.14285714285714285}"
 others,"{'eg': 0.75, 'organization': 0.25}"
 beliefs,{'attitudes': 1.0}
@@ -1185,7 +1185,7 @@ investigate,{'area': 1.0}
 manual,{'computer': 1.0}
 sampling,"{'distributions': 0.25, 'applications': 0.16666666666666666, 'central': 0.08333333333333333, 'measurement': 0.08333333333333333, 'categorical': 0.08333333333333333, 'examples': 0.08333333333333333, 'without': 0.08333333333333333, 'double': 0.08333333333333333, 'domains': 0.08333333333333333}"
 limit,"{'theorem': 0.5454545454545454, 'theorems': 0.36363636363636365, 'derivatives': 0.09090909090909091}"
-theorem,"{'algebra': 0.07017543859649122, 'calculus': 0.05263157894736842, 'taylors': 0.03508771929824561, 'implicit': 0.03508771929824561, 'lebesgue': 0.03508771929824561, 'absolute': 0.03508771929824561, 'radical': 0.03508771929824561, 'artin': 0.03508771929824561, 'short': 0.03508771929824561, 'field': 0.03508771929824561, 'galois': 0.03508771929824561, 'bézouts': 0.03508771929824561, 'conditional': 0.03508771929824561, 'finite': 0.03508771929824561, 'point': 0.017543859649122806, 'families': 0.017543859649122806, 'quick': 0.017543859649122806, 'standard': 0.017543859649122806, 'sampling': 0.017543859649122806, 'extrema': 0.017543859649122806, 'polar': 0.017543859649122806, 'parametric': 0.017543859649122806, 'existence': 0.017543859649122806, 'applications': 0.017543859649122806, 'normal': 0.017543859649122806, 'finitely': 0.017543859649122806, 'theory': 0.017543859649122806, 'statistical': 0.017543859649122806, 'series': 0.017543859649122806, 'matrix': 0.017543859649122806, 'quadratic': 0.017543859649122806, 'manifolds': 0.017543859649122806, 'compact': 0.017543859649122806, 'galerkin': 0.017543859649122806, 'introduction': 0.017543859649122806, 'course': 0.017543859649122806, 'exponential': 0.017543859649122806, 'recursion': 0.017543859649122806, 'topics': 0.017543859649122806, 'proving': 0.017543859649122806}"
+theorem,"{'algebra': 0.07017543859649122, 'calculus': 0.05263157894736842, 'taylors': 0.03508771929824561, 'implicit': 0.03508771929824561, 'lebesgue': 0.03508771929824561, 'absolute': 0.03508771929824561, 'radical': 0.03508771929824561, 'artin': 0.03508771929824561, 'short': 0.03508771929824561, 'field': 0.03508771929824561, 'galois': 0.03508771929824561, 'bã©zouts': 0.03508771929824561, 'conditional': 0.03508771929824561, 'finite': 0.03508771929824561, 'point': 0.017543859649122806, 'families': 0.017543859649122806, 'quick': 0.017543859649122806, 'standard': 0.017543859649122806, 'sampling': 0.017543859649122806, 'extrema': 0.017543859649122806, 'polar': 0.017543859649122806, 'parametric': 0.017543859649122806, 'existence': 0.017543859649122806, 'applications': 0.017543859649122806, 'normal': 0.017543859649122806, 'finitely': 0.017543859649122806, 'theory': 0.017543859649122806, 'statistical': 0.017543859649122806, 'series': 0.017543859649122806, 'matrix': 0.017543859649122806, 'quadratic': 0.017543859649122806, 'manifolds': 0.017543859649122806, 'compact': 0.017543859649122806, 'galerkin': 0.017543859649122806, 'introduction': 0.017543859649122806, 'course': 0.017543859649122806, 'exponential': 0.017543859649122806, 'recursion': 0.017543859649122806, 'topics': 0.017543859649122806, 'proving': 0.017543859649122806}"
 interval,{'estimation': 1.0}
 inferences,"{'means': 0.5, 'normal': 0.5}"
 means,{'proportions': 1.0}
@@ -1289,8 +1289,8 @@ outside,"{'general': 0.75, 'air': 0.25}"
 air,{'used': 1.0}
 cooling,{'eg': 1.0}
 british,{'columbia': 1.0}
-columbia,{'québec': 1.0}
-québec,{'finland': 1.0}
+columbia,{'quã©bec': 1.0}
+quã©bec,{'finland': 1.0}
 finland,{'iceland': 1.0}
 iceland,{'sweden': 1.0}
 sweden,{'reduction': 1.0}
@@ -1533,7 +1533,7 @@ developmental,"{'social': 0.6, 'psychology': 0.4}"
 birth,"{'old': 0.5, 'scientific': 0.5}"
 old,{'age': 1.0}
 age,{'statistical': 1.0}
-inference,"{'hypothesis': 0.14285714285714285, 'simple': 0.07142857142857142, 'point': 0.07142857142857142, 'naïve': 0.07142857142857142, 'variance': 0.07142857142857142, 'previously': 0.07142857142857142, 'model': 0.07142857142857142, 'bayesian': 0.07142857142857142, 'topics': 0.07142857142857142, 'fiducial': 0.07142857142857142, 'resampling': 0.07142857142857142, 'course': 0.07142857142857142, 'computational': 0.07142857142857142}"
+inference,"{'hypothesis': 0.14285714285714285, 'simple': 0.07142857142857142, 'point': 0.07142857142857142, 'naã¯ve': 0.07142857142857142, 'variance': 0.07142857142857142, 'previously': 0.07142857142857142, 'model': 0.07142857142857142, 'bayesian': 0.07142857142857142, 'topics': 0.07142857142857142, 'fiducial': 0.07142857142857142, 'resampling': 0.07142857142857142, 'course': 0.07142857142857142, 'computational': 0.07142857142857142}"
 trend,"{'analysis': 0.3333333333333333, 'procedures': 0.3333333333333333, 'contemporary': 0.3333333333333333}"
 protocol,"{'experimental': 0.16666666666666666, 'hierarchies': 0.16666666666666666, 'architectures': 0.16666666666666666, 'implementation': 0.16666666666666666, 'transmission': 0.16666666666666666, 'file': 0.16666666666666666}"
 experimental,"{'designs': 0.26666666666666666, 'techniques': 0.26666666666666666, 'aspects': 0.13333333333333333, 'design': 0.13333333333333333, 'non': 0.06666666666666667, 'data': 0.06666666666666667, 'plans': 0.06666666666666667}"
@@ -1839,7 +1839,7 @@ teachers,"{'part': 0.5, 'assessment': 0.25, 'see': 0.25}"
 consultation,"{'individuals': 0.6, 'problem': 0.2, 'internship': 0.2}"
 traditions,{'well': 1.0}
 four,{'areas': 1.0}
-modules,"{'workshops': 0.11538461538461539, 'tensor': 0.11538461538461539, 'algebras': 0.11538461538461539, 'rings': 0.07692307692307693, 'projective': 0.07692307692307693, 'injective': 0.07692307692307693, 'flat': 0.07692307692307693, 'direct': 0.038461538461538464, 'free': 0.038461538461538464, 'classification': 0.038461538461538464, 'pid': 0.038461538461538464, 'schur’s': 0.038461538461538464, 'structure': 0.038461538461538464, 'schurs': 0.038461538461538464, 'course': 0.038461538461538464, 'inheritance': 0.038461538461538464}"
+modules,"{'workshops': 0.11538461538461539, 'tensor': 0.11538461538461539, 'algebras': 0.11538461538461539, 'rings': 0.07692307692307693, 'projective': 0.07692307692307693, 'injective': 0.07692307692307693, 'flat': 0.07692307692307693, 'direct': 0.038461538461538464, 'free': 0.038461538461538464, 'classification': 0.038461538461538464, 'pid': 0.038461538461538464, 'schurâ€™s': 0.038461538461538464, 'structure': 0.038461538461538464, 'schurs': 0.038461538461538464, 'course': 0.038461538461538464, 'inheritance': 0.038461538461538464}"
 workshops,{'future': 1.0}
 possibilities,"{'part': 0.6666666666666666, 'critical': 0.3333333333333333}"
 campus,{'eg': 1.0}
@@ -1849,7 +1849,7 @@ credited,{'total': 1.0}
 total,{'90': 1.0}
 90,{'hours': 1.0}
 intended,"{'approximation': 0.3333333333333333, 'primarily': 0.3333333333333333, 'students': 0.3333333333333333}"
-approximation,"{'co': 0.1111111111111111, 'newton': 0.1111111111111111, 'principal': 0.1111111111111111, 'infinitely': 0.1111111111111111, 'l¢2': 0.1111111111111111, 'numerical': 0.1111111111111111, 'modular': 0.1111111111111111, 'parabolic': 0.1111111111111111, 'methods': 0.1111111111111111}"
+approximation,"{'co': 0.1111111111111111, 'newton': 0.1111111111111111, 'principal': 0.1111111111111111, 'infinitely': 0.1111111111111111, 'lâ¢2': 0.1111111111111111, 'numerical': 0.1111111111111111, 'modular': 0.1111111111111111, 'parabolic': 0.1111111111111111, 'methods': 0.1111111111111111}"
 whereby,{'students': 1.0}
 gain,{'experience': 1.0}
 relevance,"{'laboratory': 0.6666666666666666, 'knowledge': 0.3333333333333333}"
@@ -1858,10 +1858,10 @@ professors,"{'teach': 0.8235294117647058, 'design': 0.17647058823529413}"
 thesis,"{'preparation': 0.375, 'projects': 0.125, 'project': 0.125, 'advisory': 0.125, 'n': 0.125, 'option': 0.125}"
 publication,"{'paper': 0.6, 'sur': 0.4}"
 conception,{'et': 1.0}
-et,"{'exécution': 0.3333333333333333, 'discutés': 0.3333333333333333, 'est': 0.16666666666666666, 'mat': 0.16666666666666666}"
-exécution,{'sous': 1.0}
+et,"{'exã©cution': 0.3333333333333333, 'discutã©s': 0.3333333333333333, 'est': 0.16666666666666666, 'mat': 0.16666666666666666}"
+exã©cution,{'sous': 1.0}
 sous,{'la': 1.0}
-la,"{'direction': 0.25, 'thèse': 0.25, 'littérature': 0.25, 'carleton': 0.25}"
+la,"{'direction': 0.25, 'thã¨se': 0.25, 'littã©rature': 0.25, 'carleton': 0.25}"
 direction,{'dun': 1.0}
 dun,"{'ou': 0.3333333333333333, 'projet': 0.3333333333333333, 'article': 0.3333333333333333}"
 ou,"{'ns': 0.6, 'deux': 0.4}"
@@ -1870,13 +1870,13 @@ professeurs,"{'dun': 0.6666666666666666, 'qui': 0.3333333333333333}"
 projet,"{'de': 0.5, 'incluant': 0.5}"
 de,"{'la': 0.3333333333333333, '2': 0.3333333333333333, 'recherche': 0.16666666666666666, 'psychologie': 0.16666666666666666}"
 recherche,{'en': 1.0}
-en,"{'dehors': 0.5, 'séminaires': 0.5}"
+en,"{'dehors': 0.5, 'sã©minaires': 0.5}"
 dehors,{'du': 1.0}
 du,"{'domaine': 0.5, 'cours': 0.5}"
-domaine,{'général': 1.0}
-général,{'de': 1.0}
-thèse,{'rédaction': 1.0}
-rédaction,{'dun': 1.0}
+domaine,{'gã©nã©ral': 1.0}
+gã©nã©ral,{'de': 1.0}
+thã¨se,{'rã©daction': 1.0}
+rã©daction,{'dun': 1.0}
 article,{'pour': 1.0}
 pour,{'publication': 1.0}
 sur,{'le': 1.0}
@@ -1885,10 +1885,10 @@ incluant,{'une': 1.0}
 une,{'analyse': 1.0}
 analyse,{'critique': 1.0}
 critique,{'de': 1.0}
-littérature,{'scientifique': 1.0}
+littã©rature,{'scientifique': 1.0}
 scientifique,{'pertinente': 1.0}
-pertinente,{'noté': 1.0}
-noté,{'satisfaisant': 1.0}
+pertinente,{'notã©': 1.0}
+notã©,{'satisfaisant': 1.0}
 satisfaisant,"{'ou': 0.5, 'partie': 0.3333333333333333, 'exam': 0.16666666666666666}"
 partie,"{'1': 0.5, '2': 0.5}"
 attachment,{'influence': 1.0}
@@ -2024,13 +2024,13 @@ tutorial,{'examining': 1.0}
 sujets,{'choisis': 1.0}
 choisis,{'de': 1.0}
 psychologie,{'contemporaine': 1.0}
-contemporaine,{'présentés': 1.0}
-présentés,{'et': 1.0}
-discutés,{'en': 1.0}
-séminaires,{'au': 1.0}
+contemporaine,{'prã©sentã©s': 1.0}
+prã©sentã©s,{'et': 1.0}
+discutã©s,{'en': 1.0}
+sã©minaires,{'au': 1.0}
 au,{'niveau': 1.0}
-niveau,{'supérieur': 1.0}
-supérieur,{'partie': 1.0}
+niveau,{'supã©rieur': 1.0}
+supã©rieur,{'partie': 1.0}
 path,"{'analysis': 0.5, 'planning': 0.5}"
 full,"{'structural': 0.5, 'rank': 0.5}"
 equation,"{'sylow': 0.4, 'modeling': 0.2, 'greens': 0.2, 'bidirectional': 0.2}"
@@ -2294,8 +2294,8 @@ infimum,{'lim': 1.0}
 lim,"{'sup': 0.5, 'inf': 0.5}"
 sup,{'lim': 1.0}
 inf,{'topology': 1.0}
-topology,"{'affine': 0.2857142857142857, 'r¢n': 0.14285714285714285, 'real': 0.14285714285714285, 'homotopies': 0.14285714285714285, 'selected': 0.14285714285714285, 'control': 0.14285714285714285}"
-r¢n,{'uniform': 1.0}
+topology,"{'affine': 0.2857142857142857, 'râ¢n': 0.14285714285714285, 'real': 0.14285714285714285, 'homotopies': 0.14285714285714285, 'selected': 0.14285714285714285, 'control': 0.14285714285714285}"
+râ¢n,{'uniform': 1.0}
 compactness,"{'connectedness': 0.42857142857142855, 'heine': 0.14285714285714285, 'formal': 0.14285714285714285, 'metrisation': 0.14285714285714285, 'henkin': 0.14285714285714285}"
 heine,{'borel': 1.0}
 borel,"{'cantelli': 0.6666666666666666, 'riemann': 0.3333333333333333}"
@@ -2315,8 +2315,8 @@ symmetric,"{'matrices': 0.5, 'public': 0.25, 'ciphers': 0.25}"
 proving,"{'results': 0.5, 'automated': 0.5}"
 arithmetic,"{'modulo': 0.16666666666666666, 'functions': 0.16666666666666666, 'geometry': 0.16666666666666666, 'undecidability': 0.16666666666666666, 'numerical': 0.16666666666666666, 'public': 0.16666666666666666}"
 cyclic,{'groups': 1.0}
-cosets,{'lagrange’s': 1.0}
-lagrange’s,{'theorem': 1.0}
+cosets,{'lagrangeâ€™s': 1.0}
+lagrangeâ€™s,{'theorem': 1.0}
 subgroups,"{'homomorphisms': 0.3333333333333333, 'classical': 0.3333333333333333, 'fundamental': 0.3333333333333333}"
 homomorphisms,"{'quotient': 0.3333333333333333, 'isomorphism': 0.3333333333333333, 'coverings': 0.3333333333333333}"
 finitely,{'generated': 1.0}
@@ -2378,7 +2378,7 @@ connectedness,"{'contraction': 0.3333333333333333, 'continuous': 0.3333333333333
 contraction,{'mappings': 1.0}
 modes,"{'convergence': 0.3333333333333333, 'modular': 0.3333333333333333, 'algorithm': 0.3333333333333333}"
 weierstrass,{'approximation': 1.0}
-l¢2,{'spaces': 1.0}
+lâ¢2,{'spaces': 1.0}
 laurent,{'series': 1.0}
 residue,{'calculus': 1.0}
 conformal,{'mappings': 1.0}
@@ -2446,7 +2446,7 @@ nearest,"{'neighbours': 0.5, 'neighbor': 0.5}"
 neighbours,{'regularization': 1.0}
 regularization,"{'methods': 0.5, 'generalization': 0.5}"
 bayesian,"{'inference': 0.4, 'networks': 0.2, 'modelling': 0.1, 'point': 0.1, 'intervals': 0.1, 'learning': 0.1}"
-naïve,{'bayes': 1.0}
+naã¯ve,{'bayes': 1.0}
 bayes,"{'classification': 0.3333333333333333, 'inference': 0.3333333333333333, 'decision': 0.3333333333333333}"
 bootstrap,"{'jackknife': 0.5, 'tree': 0.25, 'estimates': 0.25}"
 tree,"{'based': 0.25, 'strings': 0.25, 'algorithm': 0.25, 'structures': 0.25}"
@@ -2504,7 +2504,7 @@ localization,"{'rings': 0.75, 'mobile': 0.25}"
 tensor,"{'product': 0.6, 'fields': 0.2, 'analysis': 0.2}"
 algebras,"{'semisimple': 0.25, 'group': 0.125, 'characters': 0.125, 'hilberts': 0.125, 'krull': 0.125, 'field': 0.125, 'ccs': 0.125}"
 semisimple,"{'rings': 0.6666666666666666, 'finite': 0.3333333333333333}"
-schur’s,{'lemma': 1.0}
+schurâ€™s,{'lemma': 1.0}
 jacobson,{'density': 1.0}
 density,"{'theorem': 0.5, 'matrix': 0.25, 'estimation': 0.25}"
 artin,{'wedderburn': 1.0}
@@ -2542,7 +2542,7 @@ genus,{'divisors': 1.0}
 divisors,{'line': 1.0}
 bundles,{'riemann': 1.0}
 roch,{'theorem': 1.0}
-bézouts,{'theorem': 1.0}
+bã©zouts,{'theorem': 1.0}
 differentiable,{'structures': 1.0}
 covering,{'spaces': 1.0}
 homology,"{'via': 0.5, 'functor': 0.5}"
@@ -2894,17 +2894,17 @@ contenu,{'du': 1.0}
 cours,"{'est': 0.5, 'mat': 0.25, 'et': 0.25}"
 5551,"{'cet': 0.5, 'et': 0.5}"
 examenn,{'est': 1.0}
-est,"{'équivalent': 0.5, 'lexamen': 0.25, 'corrigé': 0.25}"
+est,"{'ã©quivalent': 0.5, 'lexamen': 0.25, 'corrigã©': 0.25}"
 lexamen,{'final': 1.0}
-corrigé,{'par': 1.0}
+corrigã©,{'par': 1.0}
 par,{'les': 1.0}
 les,{'professeurs': 1.0}
 qui,{'enseignent': 1.0}
 enseignent,{'mat': 1.0}
 5552,{'dans': 1.0}
-dans,{'lannée': 1.0}
-lannée,{'académique': 1.0}
-académique,{'noté': 1.0}
+dans,{'lannã©e': 1.0}
+lannã©e,{'acadã©mique': 1.0}
+acadã©mique,{'notã©': 1.0}
 5151,"{'mat': 0.5, 'exam': 0.25, 'comp': 0.25}"
 5152,"{'academic': 0.6666666666666666, 'exam': 0.3333333333333333}"
 5131,"{'mat': 0.3333333333333333, 'exam': 0.16666666666666666, 'eagj': 0.16666666666666666, 'elg': 0.16666666666666666, 'comp': 0.16666666666666666}"
@@ -3445,9 +3445,9 @@ submitted,{'examination': 1.0}
 successfully,{'defended': 1.0}
 defended,{'ce': 1.0}
 ce,{'cours': 1.0}
-équivalent,{'à': 1.0}
-à,"{'comp': 0.5, 'la': 0.5}"
-6908,"{'à': 0.5, 'carleton': 0.5}"
+ã©quivalent,{'ã': 1.0}
+ã,"{'comp': 0.5, 'la': 0.5}"
+6908,"{'ã': 0.5, 'carleton': 0.5}"
 assembled,{'must': 1.0}
 approve,{'least': 1.0}
 typically,{'major': 1.0}
@@ -3458,4 +3458,4 @@ conditionally,{'ie': 1.0}
 extra,{'course': 1.0}
 unconditionally,{'failed': 1.0}
 retaken,{'one': 1.0}
-6907,"{'à': 0.5, 'carleton': 0.5}"
+6907,"{'ã': 0.5, 'carleton': 0.5}"

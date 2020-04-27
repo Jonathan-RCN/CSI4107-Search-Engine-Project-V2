@@ -91,6 +91,10 @@ def qem_bool_query(query):
     # print(bool_word_list)
     # print(query_ind_words)
     expansion_word_list_list = qem_vsm_bool_word_expandor(query_ind_words)
+    # The expandor returned no words
+    if expansion_word_list_list == []:
+        return ExpandedQuery(query, query, [])
+
     print (expansion_word_list_list)
 
     suggestion_list=[]
@@ -193,7 +197,8 @@ def qem_vsm_bool_word_expandor(ind_word_list):
         if element.find('*')>0:
             wild_card_counter+=1
     functionnal_list_length= list_length - wild_card_counter
-
+    if functionnal_list_length == 0:
+        return []
     num_syns_per_word = int(config.QEM_MAX_TOTAL_WORD_COUNT / functionnal_list_length)
     # need to account for inital word in the total count
     num_syns_per_word -= 1

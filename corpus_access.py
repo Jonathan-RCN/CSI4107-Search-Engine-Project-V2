@@ -49,6 +49,15 @@ def get_documents(corpus, list_doc_ids):
     #list_doc_ids is a list of (doc_id, score) pairs
     for doc in list_doc_ids:
         doc_id = doc[0]
+        # print(doc_id)
+        # print(doc[1])
+        # print(root[doc_id][0].text)
+        if root[doc_id][1].text == None:
+            root[doc_id][1].text=' // There is no title information available. Reuters did not supply any title information for this article. //'
+        if root[doc_id][2].text == None:
+            root[doc_id][2].text='// There is no text body information available. Reuters did not supply any body text for this article. //'
+        # print(root[doc_id][1].text)
+        # print(root[doc_id][2].text)
         doc_to_add = Document(doc_id, doc[1],
                               root[doc_id][0].text+' '+root[doc_id][1].text,
                               root[doc_id][2].text)

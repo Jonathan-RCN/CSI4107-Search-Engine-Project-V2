@@ -28,9 +28,9 @@ def extract_reuters_articles__efficient():
 
     with tqdm(total=21578) as pbar:
         article_info = []
-        for sgm_file in os.listdir('SGM Files'):
+        for sgm_file in os.listdir('Reteurs/SGM Files'):
 
-            with open(f'SGM Files/{sgm_file}', "r") as file:
+            with open(f'Reteurs/SGM Files/{sgm_file}', "r") as file:
                 data = file.read()
                 html_data = BeautifulSoup(data, 'html.parser')
 

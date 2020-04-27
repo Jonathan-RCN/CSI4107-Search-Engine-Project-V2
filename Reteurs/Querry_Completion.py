@@ -34,7 +34,7 @@ def get_n_best_completion_pairs(n_gram_dict):
             COMPLETION_LIST.append(completion_pair)
 
 def translate_completion_list_to_static_csv(completion_list):
-    csv_filename="qcm_complation_pair_list.csv"
+    csv_filename="Reteurs/qcm_complation_pair_list.csv"
     s = ','
     completion_string = s.join(completion_list)
     #print(completion_string.split(','))
@@ -57,7 +57,7 @@ def qcm_completion_list_access():
     if COMPLETION_LIST !=[]:
         return COMPLETION_LIST
     else:
-        csv_filenmae="qcm_complation_pair_list.csv"
+        csv_filenmae="Reteurs/qcm_complation_pair_list.csv"
         if os.path.exists(csv_filenmae):
             with open(csv_filenmae, newline='', encoding='utf-8') as file:
                 reader = csv.reader(file)
@@ -69,7 +69,7 @@ def qcm_completion_list_access():
 
 
 
-qcm_wrapper_creation()
+# qcm_wrapper_creation()
 
 
 

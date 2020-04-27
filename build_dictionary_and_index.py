@@ -31,6 +31,7 @@ import vsm_weight
 import config
 import Reteurs.text_categorization as text_categorization
 import Reteurs.bigram_model as bigram_model
+import Reteurs.Querry_Completion as QCM
 
 def __build_dictionary(corpus_filename, linguistic_processing_parameters):
     """
@@ -330,6 +331,11 @@ def dictionary_and_inverted_index_wrapper(linguistic_control_dictionary, corpus)
 
     # if corpus == config.REUTERS and not os.path.exists(config.CORPUS[corpus]['doc_by_topic']):
     #     text_categorization.doc_id_by_topic()
+
+    if os.path.exists('Reteurs/qcm_complation_pair_list.csv'):
+        pass
+    else:
+        QCM.qcm_wrapper_creation()
 
     #The required files dont exits -> create them
     if not os.path.exists(inverted_index_filename)  \
