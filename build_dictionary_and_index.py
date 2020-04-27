@@ -29,9 +29,8 @@ from nltk import FreqDist
 from linguistic_processor import linguistic_module, bigraph_splitter
 import vsm_weight
 import config
-import Reteurs.text_categorization as text_categorization
-import Reteurs.bigram_model as bigram_model
-import Reteurs.Querry_Completion as QCM
+import bigram_model as bigram_model
+import Querry_Completion as QCM
 
 def __build_dictionary(corpus_filename, linguistic_processing_parameters):
     """
@@ -332,7 +331,7 @@ def dictionary_and_inverted_index_wrapper(linguistic_control_dictionary, corpus)
     # if corpus == config.REUTERS and not os.path.exists(config.CORPUS[corpus]['doc_by_topic']):
     #     text_categorization.doc_id_by_topic()
 
-    if os.path.exists('Reteurs/qcm_complation_pair_list.csv'):
+    if os.path.exists('qcm_complation_pair_list.csv'):
         pass
     else:
         QCM.qcm_wrapper_creation()

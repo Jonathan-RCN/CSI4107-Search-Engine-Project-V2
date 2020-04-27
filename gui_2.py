@@ -26,9 +26,9 @@ import vsm_retrieval
 import boolean_search
 import spelling
 from tkinter_autocomplete_listbox import AutocompleteEntry
-import Reteurs.global_query_expansion as qem
-import Reteurs.relevance_feeback as rf
-import Reteurs.Querry_Completion as qcm
+import global_query_expansion as qem
+import relevance_feeback as rf
+import Querry_Completion as qcm
 
 class SearchEngineGUI:
     """Start the search engine GUI."""
@@ -105,18 +105,18 @@ class SearchEngineGUI:
         tkinter.Label(bottom_frame, font=(self.font_to_use, 18),
                       text='Search results (right-click a result to toggle relevance)').pack()
         self.search_topic = tkinter.StringVar()
-        #// topics = config.TOPICS
+        topics = config.TOPICS_LIST
         # self.search_topic.set(topics[0])
         tkinter.Label(topic_frame,
                       text="Choose a topic:",
                       justify=tkinter.LEFT,
                       font=(self.font_to_use, 18)).pack(side='left')
         #dropdown = tkinter.OptionMenu(topic_frame, self.search_topic, *topics)
-        #// dropdown = tkinter.ttk.Combobox(topic_frame, textvariable=self.search_topic, values=topics)
+        dropdown = tkinter.ttk.Combobox(topic_frame, textvariable=self.search_topic, values=topics)
         #menu = dropdown.nametowidget(dropdown.menuname)
-        #// dropdown.pack()
+        dropdown.pack()
         #menu.configure(font=(self.font_to_use, 18))
-        #// dropdown.configure(width=25, font=(self.font_to_use, 18))
+        dropdown.configure(width=25, font=(self.font_to_use, 18))
         self.search_model = tkinter.IntVar()
         # Initialize search model to 1 - Boolean
         self.search_model.set(1)

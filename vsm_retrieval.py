@@ -52,6 +52,21 @@ def retrieve(query, corpus):
     #Adapted from https://stackoverflow.com/a/38218662
     return [(x, score[x]) for x in klargest]
 
+def knn_retrieve(query):
+    """Retrieve ranked list of documents"""
+    #create list of 1's for each word in query, assumes equal weighting for each term
+    query_ones = [1 for x in range(len(convert_query(query)))]
+    score = dict()
+    docs = shortlist(query, config.REUTERS)
+    for doc_id in docs:
+        score[doc_id] = similarity(docs[doc_id], query_ones)
+    #Adapted from https://www.geeksforgeeks.org/python-n-largest-values-in-dictionary/
+
+    klargest = nlargest(config.K_RETRIEVAL+1, score, key=score.get)
+    #Adapted from https://stackoverflow.com/a/38218662
+    nearest_neighbhors=[x for x in klargest]
+    return nearest_neighbhors[1:]
+
 
 def shortlist(query, corpus):
     """Create shortlist of docs from inv_index based only on those that have at

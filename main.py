@@ -15,10 +15,10 @@ from datetime import datetime
 import config
 import gui_2
 import corpus_preprocessing_uottawa
-import Reteurs.corpus_preprocessing_reuters as corpus_preprocessing_reuters
+import corpus_preprocessing_reuters as corpus_preprocessing_reuters
 from build_dictionary_and_index import dictionary_and_inverted_index_wrapper
-import Reteurs.relevance_feeback as RF
-import boolean_search
+import relevance_feeback as RF
+from text_catgorization_k_nn import get_topics, multipass_wrapper
 
 
 def main():
@@ -36,8 +36,9 @@ def main():
     dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
     corpus = config.REUTERS
     dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
-
-    dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
+    un_speficied_topics_list=get_topics()
+    multipass_wrapper(un_speficied_topics_list,config.KNN_MAX_PASS,config.KNN_SELECTED_METHOD)
+    #dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
     end_time = datetime.now()
     total_time = end_time-start_time
     print(total_time)

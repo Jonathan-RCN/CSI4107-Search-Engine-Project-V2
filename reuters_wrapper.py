@@ -1,0 +1,7 @@
+import config
+import corpus_preprocessing_reuters as corpus_maker
+from build_dictionary_and_index import dictionary_and_inverted_index_wrapper
+
+corpus_maker.extract_reuters_articles__efficient()
+corpus = config.REUTERS
+dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
