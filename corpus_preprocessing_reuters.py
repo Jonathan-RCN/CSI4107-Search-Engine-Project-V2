@@ -1,16 +1,28 @@
+"""
+Title: Corpus Pre-processing Module (Reuters)
+
+Project: CSI4107 Project
+Version: Final System
+Component: Module 0
+
+Created: 25 Apr 2020
+Last modified: 26 Apr 2020
+
+Author: Jonathan Boerger
+Status: Completed
+
+Description: This module transforms the Reuters collection into an xml based corpus index by document id and containing
+the article title, body text, and topics.
+
+General references:
+    https://www.programcreek.com/python/example/104628/nltk.corpus.reuters.fileids
+"""
+
 import os
-
-from nltk.corpus import reuters
-import nltk
-
-nltk.download('reuters')
 import config
-import bs4
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as xml
-from datetime import datetime
 from tqdm import tqdm
-
 
 
 def extract_reuters_articles__efficient():
@@ -20,6 +32,7 @@ def extract_reuters_articles__efficient():
 
             tree = xml.parse(xml_corpus_filename)
             root = tree.getroot()
+            #checking to see if all articles are present
             if root[21577]:
                 print('The XML file exist and contains the required number of articles.')
                 return
@@ -28,14 +41,14 @@ def extract_reuters_articles__efficient():
 
     with tqdm(total=21578) as pbar:
         article_info = []
+        #iterating through SGM files
         for sgm_file in os.listdir('SGM Files'):
-
+            #parsing raw text as HTML
             with open(f'SGM Files/{sgm_file}', "r") as file:
                 data = file.read()
                 html_data = BeautifulSoup(data, 'html.parser')
 
                 article_list = html_data.find_all('reuters')
-
                 for article in article_list:
 
                     article_id = article.attrs['newid']
@@ -104,9 +117,10 @@ def xml_writter__efficient(article_list, xml_filename):
             tree.write(file)
 
 
-
-
 def text_filter(text):
+    """
+    This method filters out unwanted text artifacts from the title and body
+    """
     text = text.replace('\r', "")
     text = text.replace('\n', " ")
     text = text.replace('\t', "")
@@ -122,6 +136,8 @@ def text_filter(text):
     text = text.replace('[B', '')
     return text
 
+
+# "Initial implementation, very inneficient"
 # def extract_reuters_articles():
 #     documents = reuters.fileids()
 #     doc_count=len(documents)
@@ -210,4 +226,4 @@ def text_filter(text):
 #     with open(xml_filename, "wb") as file:
 #         tree.write(file)
 
-extract_reuters_articles__efficient()
+#extract_reuters_articles__efficient()

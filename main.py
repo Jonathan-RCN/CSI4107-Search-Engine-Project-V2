@@ -13,12 +13,15 @@ Description: Main module - combines all parts of project
 """
 from datetime import datetime
 import config
-import gui_2
+#import gui_2
+import gui
 import corpus_preprocessing_uottawa
 import corpus_preprocessing_reuters as corpus_preprocessing_reuters
 from build_dictionary_and_index import dictionary_and_inverted_index_wrapper
 import relevance_feeback as RF
 from text_catgorization_k_nn import get_topics, multipass_wrapper
+import bigram_model
+import boolean_search
 
 
 def main():
@@ -37,7 +40,7 @@ def main():
     corpus = config.REUTERS
     dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
     un_speficied_topics_list=get_topics()
-    multipass_wrapper(un_speficied_topics_list,config.KNN_MAX_PASS,config.KNN_SELECTED_METHOD)
+    #multipass_wrapper(un_speficied_topics_list,config.KNN_MAX_PASS,config.KNN_SELECTED_METHOD)
     #dictionary_and_inverted_index_wrapper(config.LINGUISTIC_PARAMS, corpus)
     end_time = datetime.now()
     total_time = end_time-start_time
@@ -63,8 +66,9 @@ def main():
     # for query in vsm_queries[:1]:
     #     print(query)
     #     print(vsm_retrieval.retrieve(query, corpus))
-
-    gui_2.SearchEngineGUI()
+    # print(boolean_search.boolean_search_module("shareholder AND security", config.REUTERS))
+    #gui_2.SearchEngineGUI()
+    gui.SearchEngineGUI()
 
 
 

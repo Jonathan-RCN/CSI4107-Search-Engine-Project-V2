@@ -52,7 +52,10 @@ def boolean_search_module(query, corpus):
     postfix_query = postfix_translation(infix_query)
     #read in inverted_index dictionary from csv just once per search
     inverted_index_dict = inverted_index_dictionary(corpus)
+    # print(infix_query)
+    # print(postfix_query)
     doc_id_list = boolean_postfix_query_processor(postfix_query, inverted_index_dict)
+    # print(doc_id_list)
     #add dummy scores to doc_id_list
     ones = [1] * len(doc_id_list)
     return zip(doc_id_list, ones)
@@ -87,7 +90,11 @@ def boolean_postfix_query_processor(postfix_query, inverted_index):
         else:
             word1 = operand_stack.pop()
             word2 = operand_stack.pop()
+            # print(word1)
+            # print(word2)
+
             result = intersect_wrapper(word1, word2, token, inverted_index)
+            # print(result)
             operand_stack.append(result)
     if operand_stack:
         return operand_stack.pop()
@@ -107,6 +114,8 @@ def intersect_wrapper(word1, word2, operator, inverted_index):
     :return: A list of merged docIDs
 
     """
+    # print(word1)
+    # print(word2)
     if isinstance(word1, str):
         word1 = get_doc_id(word1, inverted_index)
         if word1 == -1:
@@ -115,9 +124,13 @@ def intersect_wrapper(word1, word2, operator, inverted_index):
         word2 = get_doc_id(word2, inverted_index)
         if word2 == -1:
             word2 = []
+    # print(word1)
+    # print(word2)
     if operator == 'AND':
+        print('AND')
         result = intersect_and(word1, word2)
     elif operator == 'OR':
+        print('OR')
         result = intersect_or(word1, word2)
     elif operator == "AND_NOT":
         result = intersect_and_not(word1, word2)
@@ -224,6 +237,7 @@ def get_doc_id(word_query, inverted_index):
     """
 
     doc_id_list = []
+    # print(inverted_index[word_query])
     if word_query in inverted_index:
         for doc_id in inverted_index[word_query]:
             doc_id_list.append(doc_id)

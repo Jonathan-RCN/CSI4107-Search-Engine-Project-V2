@@ -1,3 +1,46 @@
+"""
+Title: Document Classification Module
+
+Project: CSI4107 Project
+Version: Final System
+Component: Module 6
+
+Created: 26 Apr 2020
+
+Author: Jonathan Boerger
+Status: Completed
+
+Takes all documents which do not have specified topics and apply k-NN algorithm to classify them.
+
+
+Limitation:
+    No not classify documents where there is not body text or title text.
+    Did not attempt to normalize to help balance the fact that certain topics have only one or two instances.
+    Therefore, if a higher k-value is used it will be impossible to classify a document as that topic.
+
+General references:
+
+    As detailled in the project report, I was unable to implement module 7. Therefore, I have adapted Tiffany Maynard
+    GUI for her version of this project to work with this module. As a result, some methods are structured similarily
+    to allow for intergration.
+
+Design Decisions:
+Determine k-value:
+-After proving basic functionality, I did a mini validation (code is still in the file) of different k values.
+For I attempted to classify the documents that already had a topic and compared the predicted topic to its actual topic.
+I tested a k value of 3,5,7.
+I found that a value of 7 had the highest accuracy (~85% correct), but also classified the least documents in a single pass (nearest neighbors might not have topic and thus not able to classify) .
+With a value of 3, it had the highest number of documents classified, but only the lowest accuracy rating (~60%).
+Therefore, I choose 5 as a balance between ability to classify and accuracy (~70%)
+Determining similarity measure:
+Used VSM to determine similarity measure. Inputted the entire document text into the VSM model as the query. And then took the k-most relevant results as the k-nearest neighbors.
+Managing multiple topics:
+For each NN, got all the topics. For the given topic if there was more than ceil(k/2) the document in question would be assigned the topic. As such a document can be assigned any number of topics as long as its meats the KNN requirements.
+Storing topic information:
+While the KNN algorithm was performing a pass, the predicted topics were stored locally as not to impact the results for the remainder of the pass.
+Once the pass was completed, predicted topics were added to the xml corpus itself
+"""
+
 import config
 import os
 import xml.etree.ElementTree as xml
@@ -17,7 +60,7 @@ def get_topics():
     tree = xml.parse(xml_corpus_filename)
     root = tree.getroot()
     complete_list = []
-    topics_list_complete=[]
+    topics_list_complete = []
     uncategorized_list = []
 
     for doc_id in range(0, 21578):
@@ -33,10 +76,11 @@ def get_topics():
             if topic not in topics_list_complete:
                 topics_list_complete.append(topic)
 
-    print(topics_list_complete)
+    # print(topics_list_complete)
 
     TOPIC_DICT["all_topics"] = complete_list
     return uncategorized_list
+
 
 def topic_list_to_csv():
     get_topics()
@@ -47,8 +91,9 @@ def topic_list_to_csv():
             writer.writerow([key, value])
 
 
-def get_topic_information():
-    return TOPIC_DICT
+def get_topic_information(topic):
+    return TOPIC_DICT[topic]
+
 
 def knn_classifier_strict(unspecified_doc_list):
     # CLASSIFIED_DICT=dict()
@@ -394,7 +439,8 @@ def multipass_wrapper_validate(doc_id_list_for_catg, max_pass, knn_method):
             break
         previous_unclass = remaning_unclass
 
-get_topics()
+
+topic_list_to_csv()
 
 # categorized_list = get_topics()
 # # print(categorized_list[:100])

@@ -6,15 +6,19 @@ Version: Vanilla System
 Component: Module 3 & 4 + supporting methods for module 7
 
 Created: 30 Jan 2020
-Last modified: 13 Apr 2020
+Last modified: 27 Apr 2020
 
 Author: Jonathan Boerger
-Modified by: Tiffany Maynard
 Status: Complete
 
 Description: This takes a corpus, applies linguistic processing on the documents within the corpus
             and creates an IR dictionary which is then used to build an inverted index and bigraph
             index in csv file format.
+
+Modification:
+    Created vanilla sytems files for the Reuters corpus
+    Added bigraph model index creation, word-completion creation for both corpuses
+    Added topic list creation for Reuters corpus
 
 """
 import csv
@@ -30,7 +34,8 @@ from linguistic_processor import linguistic_module, bigraph_splitter
 import vsm_weight
 import config
 import bigram_model as bigram_model
-import Querry_Completion as QCM
+import querry_completion_module as QCM
+import text_catgorization_k_nn as KNN
 
 def __build_dictionary(corpus_filename, linguistic_processing_parameters):
     """
@@ -328,8 +333,8 @@ def dictionary_and_inverted_index_wrapper(linguistic_control_dictionary, corpus)
         __linguistic_processing_parameters_csv(linguistic_control_dictionary, lp_parameter_filename)
         bigram_model.create_bigram_model(corpus)
 
-    # if corpus == config.REUTERS and not os.path.exists(config.CORPUS[corpus]['doc_by_topic']):
-    #     text_categorization.doc_id_by_topic()
+    if corpus == config.REUTERS and not os.path.exists(config.CORPUS[corpus]['doc_by_topic']):
+        KNN.topic_list_to_csv()
 
     if os.path.exists('qcm_complation_pair_list.csv'):
         pass

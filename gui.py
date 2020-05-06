@@ -2,27 +2,49 @@
 Title: GUI for Search Engine
 
 Project: CSI4107 Project
-Version: Vanilla System
-Component: Module 1
+Version: Vanilla System + Final System
+Component: Module 1 + Module 7
 
 Created: 23 Jan 2020
-Last modified: 13 Feb 2020
+Last modified: 13 Apr 2020
 
 Author: Tiffany Maynard
-Status: Complete
+Status: Completed
 
 Description: Allow a user to access search engine capabilities
 
+
+
 """
+"""
+
+I DID NOT WRITE THIS CODE
+
+IMPORTED FROM Tiffany Maynard MODULE 7 GUI IMPLEMETAIOM
+
+THIS IS NOT MY CODE AND I AM NOT TAKING CREDIT FOR IT.
+
+REFER TO PROJECT REPORT FOR JUSTIFICATION FOR IMPORTING HER MODULE 7
+
+"""
+
+
 import tkinter
 from tkinter import messagebox
 import tkinter.scrolledtext as tkscrolled
 from tkinter import PhotoImage
+import tkinter.ttk
+import re
 import config
 import corpus_access
 import vsm_retrieval
 import boolean_search
 import spelling
+from tkinter_autocomplete_listbox import AutocompleteEntry
+import global_query_expansion as qem
+import relevance_feeback as rf
+import querry_completion_module as qcm
+
 
 class SearchEngineGUI:
     """Start the search engine GUI."""
@@ -34,13 +56,18 @@ class SearchEngineGUI:
         # https://codinginfinite.com/gui-application-in-python-tkinter-tutorial/
         # Create a root window
         self.root = tkinter.Tk()
-        self.root.title("Jindalee - a search engine")
+        self.root.title("Jindalee-J - a search engine")
         self.root.geometry("1200x1200")
         # Create frames
 
         top_frame = tkinter.Frame(self.root)
+        self.expanded_frame = tkinter.Frame(self.root)
+        self.expanded_list = list()
+        self.tailor_frame = tkinter.Frame(self.root)
+        self.tailor_list = list()
         self.spelling_frame = tkinter.Frame(self.root)
         self.spelling_list = list()
+        topic_frame = tkinter.Frame(self.root)
         search_frame = tkinter.Frame(self.root)
         collection_frame = tkinter.Frame(self.root)
         button_frame = tkinter.Frame(self.root)
@@ -48,13 +75,32 @@ class SearchEngineGUI:
         results_frame = tkinter.Frame(bottom_frame)
         # Create labels
         tkinter.Label(top_frame, font=(self.font_to_use, 24),
-                      fg='#5016b5', text='Jindalee  ').pack(side='left')
+                      fg='#02a4d3', text='Jindalee-J  ').pack(side='left')
 
 
-        self.search_entry = tkinter.Entry(top_frame, width=50, textvariable="Type here",
-                                          font=(self.font_to_use, 18))
+        #self.search_entry = tkinter.Entry(top_frame, width=50, textvariable="Type here",
+#                                          font=(self.font_to_use, 18))
 
+        #self.search_entry.pack(side='left')
+        auto_complete_list = qcm.qcm_completion_list_access()
+        #auto_complete_list = ["stock broker", "wine box", "wine maker", "stocks life"]
+        def matches(field_value, ac_list_entry):
+            pattern = re.compile(re.escape(field_value) + '.*', re.IGNORECASE)
+            return re.match(pattern, ac_list_entry)
+
+        self.search_entry = AutocompleteEntry(
+            auto_complete_list, top_frame, width=50, font=(self.font_to_use, 18),
+            matchesFunction=matches)
         self.search_entry.pack(side='left')
+        self.expanded_label = tkinter.Label(
+            self.expanded_frame,
+            text=" ", font=(self.font_to_use, 14))
+        self.expanded_label.pack(side='left')
+        self.tailor_label = tkinter.Label(
+            self.tailor_frame,
+            text=" ", font=(self.font_to_use, 14))
+        self.tailor_label.pack(side='left')
+
         self.spelling_label = tkinter.Label(
             self.spelling_frame,
             text=" ", font=(self.font_to_use, 18))
@@ -70,17 +116,23 @@ class SearchEngineGUI:
             font=(self.font_to_use, 18))
         #bind Return key to search
         self.root.bind('<Return>', lambda event=None: self.run_search())
-        # root.destroy exits/destroys the main window
-        # self.quit_button = tkinter.Button(
-        #     top_frame,
-        #     text='Quit',
-        #     command=self.root.destroy,
-        #     font=(self.font_to_use, 18))
-        # # Pack the buttons
-        # self.quit_button.pack(side='right')
+
         self.search_button.pack(side='left')
         tkinter.Label(bottom_frame, font=(self.font_to_use, 18),
-                      text='Search results').pack()
+                      text='Search results (right-click a result to toggle relevance)').pack()
+        self.search_topic = tkinter.StringVar()
+        topics = config.TOPICS_LIST
+        self.search_topic.set(topics[0])
+        tkinter.Label(topic_frame,
+                      text="Choose a topic:",
+                      justify=tkinter.LEFT,
+                      font=(self.font_to_use, 18)).pack(side='left')
+        #dropdown = tkinter.OptionMenu(topic_frame, self.search_topic, *topics)
+        dropdown = tkinter.ttk.Combobox(topic_frame, textvariable=self.search_topic, values=topics)
+        #menu = dropdown.nametowidget(dropdown.menuname)
+        dropdown.pack()
+        #menu.configure(font=(self.font_to_use, 18))
+        dropdown.configure(width=25, font=(self.font_to_use, 18))
         self.search_model = tkinter.IntVar()
         # Initialize search model to 1 - Boolean
         self.search_model.set(1)
@@ -88,6 +140,7 @@ class SearchEngineGUI:
                       text="Choose a search model:",
                       justify=tkinter.LEFT,
                       font=(self.font_to_use, 18)).pack(side='left')
+
         tkinter.Radiobutton(search_frame,
                             text="Boolean",
                             font=(self.font_to_use, 18),
@@ -116,15 +169,18 @@ class SearchEngineGUI:
                                                  variable=self.search_collection,
                                                  value=2)
         self.reuters_radio.pack(side='left')
-        self.reuters_radio.configure(state=tkinter.DISABLED)
+        #self.reuters_radio.configure(state=tkinter.DISABLED)
         self.search_results = tkscrolled.ScrolledText(results_frame,
                                                       state="normal", wrap='word',
                                                       font=(self.font_to_use, 12))
         self.search_results.pack(side='bottom')
         # Now pack the frames also
 
-        top_frame.pack(padx=50, pady=50, side='top', fill='both')
+        top_frame.pack(padx=50, pady=40, side='top', fill='both')
+        self.expanded_frame.pack()
+        self.tailor_frame.pack()
         self.spelling_frame.pack()
+        topic_frame.pack()
         search_frame.pack()
         collection_frame.pack()
         button_frame.pack()
@@ -134,8 +190,23 @@ class SearchEngineGUI:
 
     def run_search(self):
         """Start search (callback function for search button)."""
+        if not self.search_entry.get().strip():
+            return
+        # Clear previous search results
+        # Clear previous suggestions
+        self.expanded_label.config(text="")
+        self.tailor_label.config(text="")
+        self.spelling_label.config(text="")
+        for lab in self.tailor_list:
+            lab.destroy()
+        for lab in self.spelling_list:
+            lab.destroy()
+        for lab in self.expanded_list:
+            lab.destroy()
+        self.search_results.delete('1.0', "end")
+        self.search_results.insert("insert", 'Searching, please wait...')
+        self.root.update()
         # Set corpus to be used for search
-
         if self.search_collection.get() == 1:
             corpus = config.UOTTAWA
         else:
@@ -157,16 +228,21 @@ class SearchEngineGUI:
         if search == 'VSM':
         #do VSM search
             docs_retrieved = vsm_retrieval.retrieve(self.search_entry.get().strip(),
-                                                    corpus)
+                                                    corpus, self.search_topic.get())
         else:
         #do boolean search
             docs_retrieved = boolean_search.boolean_search_module(
                 self.search_entry.get().strip(), corpus)
-        # Clear previous search results
         self.search_results.delete('1.0', "end")
         # Clear previous suggestions
+        self.expanded_label.config(text="")
+        self.tailor_label.config(text="")
         self.spelling_label.config(text="")
+        for lab in self.tailor_list:
+            lab.destroy()
         for lab in self.spelling_list:
+            lab.destroy()
+        for lab in self.expanded_list:
             lab.destroy()
         #account for times a word is returned instead of a doc_id
         if docs_retrieved and isinstance(docs_retrieved, str):
@@ -176,29 +252,49 @@ class SearchEngineGUI:
 
         suggestions = spelling.suggest_words(self.search_entry.get().strip(), corpus)
 
+        exp_obj = qem.create_global_expanded_query(self.search_entry.get().strip(), search)
+        expanded = exp_obj.expanded_query
+        tailored_items = exp_obj.suggestions
+
+        if expanded and (exp_obj.initial_query != expanded):
+            self.show_suggested_items(1, [expanded], self.expanded_list,
+                                      self.expanded_label, self.expanded_frame)
+            self.expanded_label.config(text="Expanded query: ")
+        if tailored_items and len(tailored_items) > 1:
+            self.show_suggested_items(config.QEM_MAX_TOTAL_WORD_COUNT, tailored_items, self.tailor_list,
+                                      self.tailor_label, self.tailor_frame)
+            self.tailor_label.config(text="Refine search: ")
         if suggestions:
             self.show_spelling_options(config.TOP_N_SPELLING, suggestions)
             self.spelling_label.config(text="Did you mean? ")
         if docs is None or docs == []:
             self.search_results.insert("insert", 'No documents found')
         else:
+            input_query = self.search_entry.get().strip().replace('( ', '(').replace(' )', ')')
             for doc in docs:
                 score_str = ''
+                #placeholder to add relevant indicator
+                relevant_str = ' '
                 if search == 'VSM':
                     score_str = '{:0.3f}'.format(doc.score) + ' '
                 self.search_results.insert("insert",
-                                           score_str + doc.title,
+                                           score_str + doc.title + relevant_str,
                                            hyperlink.add
                                            (self.click_link, doc.doc_id, corpus))
                 self.search_results.insert("insert", doc.doctext[:100] + '\n')
 
-    def click_link(self, click_id, corpus):
+    def click_link(self, click_id, corpus, btn):
         """Click link function."""
         # add score of 1.0 for consistency of arguments
-        doc = corpus_access.get_documents(corpus, [(click_id, 1.0)])[0]
-        messagebox.showinfo(
-            doc.title,
-            doc.doctext)
+        input_query = self.search_entry.get().strip().replace('( ', '(').replace(' )', ')')
+        if btn == 'left':
+            doc = corpus_access.get_documents(corpus, [(click_id, 1.0)])[0]
+            messagebox.showinfo(
+                doc.title,
+                rf.get_relevance(input_query, doc.doc_id, corpus) \
+                + ' ' + str(doc.doc_id) + ' \n' + doc.doctext)
+        if btn == 'right':
+            rf.update_relevance(input_query, click_id, corpus)
 
     def show_spelling_options(self, max_count, suggestions):
         """Show spelling suggestions."""
@@ -214,7 +310,20 @@ class SearchEngineGUI:
                     self.run_search()
                 self.spelling_list[-1].bind("<Button-1>", update_search_term)
                 self.spelling_list[-1].pack(side='left', padx=10, pady=10)
+    def show_suggested_items(self, max_count, suggestions, displaylist, displaylabel, displayframe):
+        """Show suggested items in list"""
+        for i in range(min(max_count, len(suggestions))):
+            if suggestions[i]:
+                displaylist.append(tkinter.Label(displayframe, fg="blue",
+                                                 font=(self.font_to_use, 14),
+                                                 text=suggestions[i]))
+                def update_search_term(event, word=suggestions[i]):
 
+                    self.search_entry.delete(0, tkinter.END)
+                    self.search_entry.insert(0, word)
+                    self.run_search()
+                displaylist[-1].bind("<Button-1>", update_search_term)
+                displaylist[-1].pack(side='left', padx=10, pady=10)
 # Code for hyperlink manager modified from
 # http://effbot.org/zone/tkinter-text-hyperlink.htm
 class HyperlinkManager:
@@ -227,6 +336,8 @@ class HyperlinkManager:
         self.text.tag_bind("hyper", "<Enter>", self._enter)
         self.text.tag_bind("hyper", "<Leave>", self._leave)
         self.text.tag_bind("hyper", "<Button-1>", self._click)
+        self.text.tag_bind("hyper", "<Button-3>", self._clickright)
+        #self.text.tag_bind("hyper", "<Button-2>", self._clickmid)
 
         self.reset()
 
@@ -250,5 +361,17 @@ class HyperlinkManager:
     def _click(self, event):
         for tag in self.text.tag_names("current"):
             if tag[:6] == "hyper-":
-                self.links[tag][0](self.links[tag][1], self.links[tag][2])
+                self.links[tag][0](self.links[tag][1], self.links[tag][2], 'left')
+                return
+
+    def _clickright(self, event):
+        for tag in self.text.tag_names("current"):
+            if tag[:6] == "hyper-":
+                self.links[tag][0](self.links[tag][1], self.links[tag][2], 'right')
+                return
+
+    def _clickmid(self, event):
+        for tag in self.text.tag_names("current"):
+            if tag[:6] == "hyper-":
+                self.links[tag][0](self.links[tag][1], self.links[tag][2], 'mid')
                 return

@@ -11,7 +11,7 @@ CORPUS[UOTTAWA] = {"source": "UofO_Courses.html",
                    "lpp_file": "uottawa_lpp.csv",
                    "bigraph_file": "uottawa_bigraph_index.csv",
                    "spelling_file": "uottawa_spelling.csv",
-                   "bigram_file": "Reteurs/uottawa_bigram.csv",
+                   "bigram_file": "uottawa_bigram.csv",
                    "corpusxml_bigram": "uottawa_corpus.xml",
                    # "relevance_dict" : RELEVANCE_DICT_UOTTAWA,
                    }
